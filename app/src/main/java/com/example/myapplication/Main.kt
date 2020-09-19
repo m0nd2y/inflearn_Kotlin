@@ -1,7 +1,7 @@
 package com.example.myapplication
 
 fun main() {
-    val items = arrayOf(1, 2, 3, 4, 5)
+    val items = listOf(1, 2, 3, 4, 5) //Int
 
     print(items)
 }
