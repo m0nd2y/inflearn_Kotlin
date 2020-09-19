@@ -1,14 +1,7 @@
 package com.example.myapplication
 
 fun main() {
-    var x = 10; //int 형 변수
-    var str = "Hello"
-    var isMarried = true
+    val items = arrayOf(1, 2, 3, 4, 5)
 
-    print("$str World")
-    print(myMethod(10, 20))
-}
-
-fun myMethod(a: Int, b: Int): Int {
-    return a + b
+    print(items)
 }
