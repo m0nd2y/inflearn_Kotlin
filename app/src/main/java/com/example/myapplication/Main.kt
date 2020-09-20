@@ -1,13 +1,11 @@
 package com.example.myapplication
 
 fun main() {
-    // Person person = new Person();
+    val str = "Hello"
 
-    var person = Person("홍길동", 20)
-    print(person)
+    print(str.myLength())
 }
 
-data class Person(
-    val name: String,
-    val age: Int
-)
+fun String.myLength():Int {
+    return this.length
+}
