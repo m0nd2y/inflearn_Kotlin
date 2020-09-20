@@ -1,5 +1,9 @@
 package com.example.room_exam;
 
+import androidx.room.PrimaryKey;
+
 public class Todo {
-    private 
+    @PrimaryKey
+    private int id;
+    private String title;
 }
