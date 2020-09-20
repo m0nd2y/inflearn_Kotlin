@@ -14,9 +14,7 @@ class MainActivity : AppCompatActivity() {
         val db = Room.databaseBuilder(
                 applicationContext,
                 Appdatabase::class.java, "db"
-        )
-                .allowMainThreadQueries()
-                .build()
+        ).build()
 
         db.todoDao().getAll().observe(this, Observer { todos ->
             result_text.text = todos.toString()
@@ -28,4 +26,4 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-} 
+}
