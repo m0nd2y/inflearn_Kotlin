@@ -1,12 +1,15 @@
 package com.example.room_exam;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.room.Room;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private EditText mTodoEditText;
@@ -22,15 +25,14 @@ public class MainActivity extends AppCompatActivity {
 
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "todo-db").allowMainThreadQueries().build();
 
-        mResultTextView.setText(db.todoDao().getAll().toString());
+        //UI 갱신
+        db.todoDao().getAll().observe(this, todos -> {
+            mResultTextView.setText(todos.toString());
+        });
 
-        findViewById(R.id.add_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                db.todoDao().insert(new Todo(mTodoEditText.getText().toString()));
-                mResultTextView.setText(db.todoDao().getAll().toString());
-
-            }
+        // 버튼 클릭 시 DB에 insert
+        findViewById(R.id.add_button).setOnClickListener(view -> {
+            db.todoDao().insert(new Todo(mTodoEditText.getText().toString()));
         });
     }
 }
