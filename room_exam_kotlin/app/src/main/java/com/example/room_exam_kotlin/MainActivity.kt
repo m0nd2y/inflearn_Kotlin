@@ -13,12 +13,15 @@ class MainActivity : AppCompatActivity() {
         val db = Room.databaseBuilder(
                 applicationContext,
                 Appdatabase::class.java, "db"
-        ).build()
+        )
+                .allowMainThreadQueries()
+                .build()
 
-        result_text.text = db.todoDao.getAll().toString()
+        result_text.text = db.todoDao().getAll().toString()
 
         add_button.setOnClickListener {
-            db.todoDao().insert(Todo())
+            db.todoDao().insert(Todo(todo_edit.text.toString()))
+            result_text.text = db.todoDao().getAll().toString()
         }
 
     }
