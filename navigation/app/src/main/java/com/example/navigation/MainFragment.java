@@ -28,13 +28,11 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        
+        final MainFragmentDirections.ActionMainFragmentToSecondFragment action =
+                MainFragmentDirections.actionMainFragmentToSecondFragment("Hello!!!!");
 
-        view.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_secondFragment);
-            }
+        view.findViewById(R.id.button).setOnClickListener((view) -> {
+            Navigation.findNavController(view).navigate(action);
         });
     }
 }
