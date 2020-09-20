@@ -1,9 +1,10 @@
 package com.example.myapplication
 
 fun main() {
-    val numbers = listOf(1,2,3,4,5)
+    val x = 1
 
-    for (i in numbers) {
-        print(i)
+    when(x) {
+        1 -> print("1입니다")
+        2 -> print("2입니다")
     }
 }
