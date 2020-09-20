@@ -13,6 +13,7 @@ import java.util.List;
 public class MainViewModel extends AndroidViewModel {
     final AppDatabase db;
     public LiveData<List<Todo>> todos;
+    public String newTodo;
 
     public MainViewModel(@NonNull Application application) {
         super(application);
@@ -25,8 +26,8 @@ public class MainViewModel extends AndroidViewModel {
         return db.todoDao().getAll();
     }
 
-    public void insert(Todo todo) {
-        new InsertAsyncTask(db.todoDao()).execute(todo);
+    public void insert(String todo) {
+        new InsertAsyncTask(db.todoDao()).execute(new Todo(todo));
     }
 
     private static class InsertAsyncTask extends AsyncTask<Todo, Void, Void> {
