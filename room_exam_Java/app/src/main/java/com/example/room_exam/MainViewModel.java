@@ -12,12 +12,13 @@ import java.util.List;
 
 public class MainViewModel extends AndroidViewModel {
     final AppDatabase db;
+    public LiveData<List<Todo>> todos;
 
     public MainViewModel(@NonNull Application application) {
         super(application);
 
         db = Room.databaseBuilder(application, AppDatabase.class, "todo-db").build();
-
+        todos = getAll();
     }
 
     public LiveData<List<Todo>> getAll() {
