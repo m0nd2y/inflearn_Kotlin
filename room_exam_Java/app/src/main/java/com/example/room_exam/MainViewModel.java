@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.room.Insert;
 import androidx.room.Room;
 
 import java.util.List;
