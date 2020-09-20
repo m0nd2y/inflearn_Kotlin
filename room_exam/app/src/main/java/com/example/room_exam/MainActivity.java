@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mTodoEditText = findViewById(R.id.todo_edit);
-        mResultTextView = fileList(R.id.result_text);
+        mResultTextView = findViewById(R.id.result_text);
 
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "todo-db").allowMainThreadQueries().build();
 
@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 db.todoDao().insert(new Todo(mTodoEditText.getText().toString()));
+                mResultTextView.setText(db.todoDao().getAll().toString());
+
             }
         });
     }
