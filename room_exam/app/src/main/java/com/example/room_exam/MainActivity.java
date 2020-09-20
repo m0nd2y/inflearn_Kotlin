@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,7 +20,15 @@ public class MainActivity extends AppCompatActivity {
         mTodoEditText = findViewById(R.id.todo_edit);
         mResultTextView = fileList(R.id.result_text);
 
-        AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "todo-db").build();
-        
+        final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "todo-db").allowMainThreadQueries().build();
+
+        mResultTextView.setText(db.todoDao().getAll().toString());
+
+        findViewById(R.id.add_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                db.todoDao().insert(new Todo(mTodoEditText.getText().toString()));
+            }
+        });
     }
 }
