@@ -20,6 +20,10 @@ public class MainViewModel extends AndroidViewModel {
     }
 
     public LiveData<List<Todo>> getAll() {
-        return db.todoDao().getAll()
+        return db.todoDao().getAll();
+    }
+
+    public insert(Todo todo) {
+        new InsertA
     }
 }
