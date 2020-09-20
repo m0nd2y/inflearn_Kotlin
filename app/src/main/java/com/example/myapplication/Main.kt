@@ -3,13 +3,11 @@ package com.example.myapplication
 fun main() {
     // Person person = new Person();
 
-    var person = Person("홍길동")
-    person.name = "한석봉"
-    print(person.name)
+    var person = Person("홍길동", 20)
+    print(person)
 }
 
-class Person(var name: String) {
-    init {
-        print(name)
-    }
-}
+data class Person(
+    val name: String,
+    val age: Int
+)
