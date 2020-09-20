@@ -1,15 +1,10 @@
 package com.example.myapplication
 
 fun main() {
-    val items = listOf(1, 2, 3, 4, 5) //불변
-    val items2 = arrayListOf(1, 2, 3, 4, 5) //변경 가능
+    var x = 2
+    if (x%2 == 0) {
+        print("짝")
+    }
 
-    items2.add(6)
-    items2.remove(1)
-
-    items2[0] = 10
-
-
-    print(items2)
-
+    val isEven =  if(x % 2 == 0) "짝" else "홀"
 }
