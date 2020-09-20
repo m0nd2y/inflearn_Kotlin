@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         mTodoEditText = findViewById(R.id.todo_edit);
         mResultTextView = findViewById(R.id.result_text);
 
-        final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "todo-db").allowMainThreadQueries().build();
 
         //UI 갱신
         db.todoDao().getAll().observe(this, todos -> {
