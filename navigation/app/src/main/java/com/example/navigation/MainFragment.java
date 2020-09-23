@@ -35,10 +35,6 @@ public class MainFragment extends Fragment {
 //            Navigation.findNavController(view).navigate(action);
 //        };
 
-        view.findViewById(R.id.button).setOnClickListener((view) -> {
-            Navigation.findNavController(view).navigate(action);
-        });
-//아래로 변경
         view.findViewById(R.id.button).setOnClickListener((view1) -> {
             Navigation.findNavController(view1).navigate(action);
         });
