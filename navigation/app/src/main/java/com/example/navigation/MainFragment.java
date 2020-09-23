@@ -31,8 +31,18 @@ public class MainFragment extends Fragment {
         final MainFragmentDirections.ActionMainFragmentToSecondFragment action =
                 MainFragmentDirections.actionMainFragmentToSecondFragment("Hello!!!!");
 
+//        view.findViewById(R.id.button).setOnClickListener {
+//            Navigation.findNavController(view).navigate(action);
+//        };
+
         view.findViewById(R.id.button).setOnClickListener((view) -> {
             Navigation.findNavController(view).navigate(action);
         });
+//아래로 변경
+        view.findViewById(R.id.button).setOnClickListener((view1) -> {
+            Navigation.findNavController(view1).navigate(action);
+        });
+
+
     }
 }
